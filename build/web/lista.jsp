@@ -37,7 +37,7 @@
                     <td><%= tur.getPraca() %></td>
                     <td><%= tur.getMonumento() %></td>
                     <td>
-                        <a href="TuristicoUpdate">Editar</a>
+                        <a href="TuristicoUpdate?id=<%= tur.getIdTuristico() %>">Editar</a>
                     </td>
                     <td>
                         <a onclick="confirmDelete()">Excluir</a>
@@ -52,9 +52,9 @@
         <a href="home.jsp" >Pagina inicial</a>
         
         <script>
-            function confirmDelete(){
+            function confirmDelete(id){
                 if(confirm("deseja realmente excluir?")){
-                    window.location.replace("TuristicoDelete?cod=");
+                    window.location.replace("TuristicoDelete?cod="+ id);
                 } else{
                     alert("Exclusão cancelada!");
                 }
@@ -65,3 +65,4 @@
         
     </body>
 </html>
+

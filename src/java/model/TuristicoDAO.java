@@ -76,8 +76,7 @@ public class TuristicoDAO {
 
     //SELECT
     public Turistico listById(int i) throws SQLException{
-            String query = "SELECT * FROM artistas WHERE id_turistico = " 
-                              +"WHERE id_turistico"+ i;
+            String query = "SELECT * FROM turistico WHERE id_turistico = "+ i;
 
             PreparedStatement prep = conn.prepareStatement(query);
             ResultSet res = prep.executeQuery();
@@ -109,7 +108,16 @@ public class TuristicoDAO {
        prep.setString(5, query);
        prep.setString(6, query);
        
-        
+       
     }
+    
+    public void deleteTuristico(int id) throws SQLException {
+        String query = "DELETE turistico WHERE id_turistico = " + id;
+        
+        PreparedStatement prep = conn.prepareStatement(query);
+        prep.execute();
+        prep.close();
+    }
+    
 
 }//fim da classe

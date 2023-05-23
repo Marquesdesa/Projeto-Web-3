@@ -9,87 +9,39 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
-import model.Turistico;
 import model.TuristicoDAO;
 
-@WebServlet(name = "CadastroTuristico", urlPatterns = {"/CadastroTuristico"})
-public class CadastroTuristico extends HttpServlet {
-    private int id;
-    private String ponto;
-    private String historia;
-    private String regiao;
-    private int praca;
-    private int monumento;
-    
+
+@WebServlet(name = "TuristicoDelete", urlPatterns = {"/TuristicoDelete"})
+public class TuristicoDelete extends HttpServlet {
+
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        //Verificar se há um ID
-        if(request.getParameter("id")!=null){
-            this.id = Integer.parseInt(request.getParameter("id"));
+        
+        int id = Integer.parseInt(request.getParameter("cod"));
+        
+        try {
+            TuristicoDAO tdao = new TuristicoDAO();
+            tdao.deleteTuristico(id);
+            response.sendRedirect("lista.jsp´");
             
-        }
-        
-        
-        //Recebendo valores formulario de cadastro
-        this.ponto = request.getParameter("ponto");
-        this.historia = request.getParameter("historia");
-        this.regiao = request.getParameter("regiao");
-        if(request.getParameter("praca")!=null){
-            this.praca =1;
-        }else {
-            this.praca =0;
-        }
-         if(request.getParameter("monumento")!=null){
-            this.monumento =1;
-        }else {
-            this.monumento =0;
-        }
-        
-        //Criando objeto da classe Artista para salvar no B.D 
-        Turistico turistico = new Turistico(
-                this.ponto,
-                this.historia,
-                this.regiao,
-                this.praca,
-                this.monumento
-        );
-        
-        
-        
-        //Instanciar a Classe Dao para usar o metodo
-        //De inserção enviando o objeto criado acima
-        try{
-            TuristicoDAO adao = new TuristicoDAO();
-            
-            //se tivermos um ID, atualizaremos o registro
-            //se não salvaremos como um novo registro
-            if(request.getParameter("id")!=null){
-                turistico.setIdTuristico(this.id);
-                adao.updateTuristico(turistico);
-            }else{
-                adao.insertTuristico(turistico);
-            }
-                response.sendRedirect("lista.jsp");
-            
-        }catch(ClassNotFoundException | SQLException erro) {
-        
-        
-        
+        } catch(SQLException | ClassNotFoundException erro) {
+                
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
+            
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet CadastroTuristico</title>");            
+            out.println("<title>Servlet TuristicoDelete</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Deu Ruim " + erro + "</h1>");
+            out.println("<h1>Servlet TuristicoDelete at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
-        }
+    }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
