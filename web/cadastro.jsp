@@ -8,29 +8,36 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Pontos Turiticos</title>
+        <link rel="icon" href="img/pp.png"/>
+        <link rel="stylesheet" href="css/style.css"/>
+        <title>Por Poa</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <h1>Cadastro</h1>
+        <h1 style="font-family: Arial; text-align: center;">Cadastro</h1>
         <hr>
+        
+        <div id="form-center">
         <form action="CadastroTuristico" method="post">
-            <h3>Novos pontos turisticos</h3>
-            <input type="text" name="ponto" placeholder="Nome Ponto Turistico">
+            <h3 style="text-align: center;">Novos pontos turisticos</h3>
+            <input type="text" name="ponto" placeholder="Nome Ponto Turistico" class="input-center">
             <br><br>
-            <input type="text" name="regiao" placeholder="Regiao do ponto">
+            <input type="text" name="regiao" placeholder="Regiao do ponto" class="input-center">
             <br><br>
-            <input type="text" name="historia" placeholder="Conte um pouco sobre o lugar">
+            <input type="text" name="historia" placeholder="Conte um pouco sobre o lugar" class="input-center">
             <br><br>
             <input type="checkbox" name="praca" value="sim"> <label>Praça</label>  
             <br><br>
             <input type="checkbox" name="monumento" value="sim"> <label>Monumento</label>  
             <br><br>
-            <input type="submit" value="cadastrar" ><hr><br>
+            <input type="submit" value="cadastrar" id="submit-cadastro" ><hr><br>
             
             
         </form>
-        <a href="home.jsp" >Pagina inicial</a>
+        </div>
+        
+        <a style="font-family: Arial;" href="home.jsp" >Pagina inicial</a>
         
     </body>
 </html>

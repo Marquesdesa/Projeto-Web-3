@@ -28,5 +28,36 @@ input[type="submit"] {
     box-shadow: 3px 3px 3px black;
 }
 
+#form-center {
+    width: 300px;
+    /*background-color: green;*/
+    text-align: left;
+    display: block;
+    margin: auto;
+    padding: 50px;
+    box-shadow: -15px 15px 15px black;
+    background-color: white;
+    border-radius: 10px;
+}
 
+.input-center {
+    width: 98%;
+    border-radius: 5px;
+    font-size: 16pt;
+}
 
+#submit-cadastro {
+    width: 80%;
+    margin: auto;
+    display: block;
+}
+
+.botaocadastro{
+    margin-left: 500px;
+     border-radius: 10px;   
+    
+}
+
+.botaol{
+    border-radius: 10px;
+}

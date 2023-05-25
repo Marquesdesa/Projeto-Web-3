@@ -13,19 +13,24 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <link rel="icon" href="img/pp.png"/>
+        <link rel="stylesheet" href="css/style.css"/>
+        <title>Por Poa</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <%@include file="session/verify.jsp" %>
-        <p>
-            Bem vindo <%= (uSession != null)
-                            ? uSession.getUserName()
-                            : "visitante" %>
-            <button onclick="window.location.href='session/logout.jsp'">Logout</button>
+        <p style="text-align: center; font-family: Arial Black; ">
+            Seja Bem Vindo !
+            
         </p>
         <hr>
-        <button onclick="window.location.href='cadastro.jsp'">CADASTRAR</button>
-        <button onclick="window.location.href='lista.jsp'">LISTAR</button>
+        
+        <button onclick="window.location.href='session/logout.jsp'" class="botaol">Logout</button>
+        <button onclick="window.location.href='cadastro.jsp'" class="botaocadastro">CADASTRAR</button>
+        <button onclick="window.location.href='lista.jsp'" class="botaocadastro">LISTAR</button>
+         
+       
     </body>
 </html>
